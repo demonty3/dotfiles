@@ -70,3 +70,6 @@ export EDITOR=code
 
 # Set ipdb as the default Python debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
+eval "$(direnv hook zsh)"
+‘export GOOGLE_APPLICATION_CREDENTIALS=/Users/henrydemontfort/code/gcp/beaming-droplet-465911-a1-8100db634399.json’
+eval "$(direnv hook zsh)"

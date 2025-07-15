@@ -84,4 +84,7 @@
     "workbench.settings.useSplitJSON": true,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.panel.defaultLocation": "right",
+    "parallels-desktop.extension.path": "/Users/henrydemontfort/.parallels-desktop-vscode",
+    "parallels-desktop.git.path": "/opt/homebrew/bin/git",
+    "parallels-desktop.brew.path": "/opt/homebrew/bin/brew",
 }
