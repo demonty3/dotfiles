@@ -70,6 +70,19 @@ export EDITOR=code
 
 # Set ipdb as the default Python debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
+# direnv: load per-project env from each project's .envrc (no global PYTHONPATH hacks)
 eval "$(direnv hook zsh)"
-‘export GOOGLE_APPLICATION_CREDENTIALS=/Users/henrydemontfort/code/gcp/beaming-droplet-465911-a1-8100db634399.json’
-eval "$(direnv hook zsh)"
+
+# Apple-Silicon Homebrew + user-local binaries on PATH
+export PATH="/opt/homebrew/bin:$HOME/.local/bin:$PATH"
+
+# Google Cloud service-account credentials
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/code/gcp/beaming-droplet-465911-a1-8100db634399.json"
+
+# Secrets (API keys) live in ~/.secrets — gitignored, never committed.
+[[ -f "$HOME/.secrets" ]] && source "$HOME/.secrets"
+
+# fnm (Node version manager): auto-switch to the .nvmrc / .node-version
+# version on `cd`. Placed last so its chpwd hook registers after nvm's and
+# wins on PATH (this repo pins Node 22 via .nvmrc).
+eval "$(fnm env --use-on-cd)"
