@@ -86,3 +86,16 @@ export GOOGLE_APPLICATION_CREDENTIALS="$HOME/code/gcp/beaming-droplet-465911-a1-
 # version on `cd`. Placed last so its chpwd hook registers after nvm's and
 # wins on PATH (this repo pins Node 22 via .nvmrc).
 eval "$(fnm env --use-on-cd)"
+
+# open a markdown file in Obsidian (file must be inside a registered vault)
+omd() {
+  [ -z "$1" ] && { echo "usage: omd <file.md>"; return 1; }
+  open "obsidian://open?path=$(python3 -c 'import urllib.parse,sys,os;print(urllib.parse.quote(os.path.abspath(sys.argv[1])))' "$1")"
+}
+
+# Starship prompt — initialized after oh-my-zsh so it overrides the theme (added 2026-06-15).
+# Config: ~/.config/starship.toml. Starship's python module replaces the old pyenv RPROMPT.
+eval "$(starship init zsh)"
+
+# GitHub MCP server token — pulled from the gh CLI keychain (added 2026-06-15)
+export GITHUB_PERSONAL_ACCESS_TOKEN="$(gh auth token)"
