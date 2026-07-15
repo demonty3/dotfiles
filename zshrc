@@ -99,3 +99,4 @@ eval "$(starship init zsh)"
 
 # GitHub MCP server token — pulled from the gh CLI keychain (added 2026-06-15)
 export GITHUB_PERSONAL_ACCESS_TOKEN="$(gh auth token)"
+# ANTHROPIC_API_KEY export removed 2026-07-15 — Claude Code uses the subscription login.
